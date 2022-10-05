@@ -4,6 +4,7 @@
 # 	number = False
 # 	if len(word1) >= 8:
 # 		for x in word1:
+# 			if int(x)   вызывает ошибку, не знаю, как обойти появление ошибки
 # 			if x.isalpha:
 # 				if x.islower():
 # 					small_sym = True
@@ -47,4 +48,4 @@ def password_2(word_2):
 
 for _ in range(15):
 	word = input('введите пароль ')
-	print(password_2(word))
+	print(password_1(word))
