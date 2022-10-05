@@ -1,23 +1,18 @@
-# def password1(word1):
-# 	cap_sym = False
-# 	small_sym = False
-# 	number = False
-# 	if len(word1) >= 8:
-# 		for x in word1:
-# 			if int(x)   вызывает ошибку, не знаю, как обойти появление ошибки
-# 			if x.isalpha:
-# 				if x.islower():
-# 					small_sym = True
-# 				else:
-# 					cap_sym = True
-# 			else:
-# 				number = True
-# 	else:
-# 		return False
-# 	if small_sym and number and cap_sym:
-# 		return True
-# 	else:
-# 		return False
+def checkPassword(password):
+	has_upper = False
+	has_lower = False
+	has_num = False
+	for ch in password:
+		if "A" <= ch <= "Z":
+			has_upper = True
+		elif "a" <= ch <= "z":
+			has_lower = True
+		elif "0" <= ch <= "9":
+			has_num = True
+	if len(password) >= 8 and has_upper and has_lower and has_num:
+		return True
+	return False
+
 
 def password_2(word_2):
 	cap_sym = {chr(x) for x in range(65, 91)}
@@ -48,4 +43,4 @@ def password_2(word_2):
 
 for _ in range(15):
 	word = input('введите пароль ')
-	print(password_1(word))
+	print(checkPassword(word))
