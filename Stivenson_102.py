@@ -41,6 +41,6 @@ def password_2(word_2):
 # print(password1(word))
 
 
-for _ in range(15):
-	word = input('введите пароль ')
-	print(checkPassword(word))
+# for _ in range(15):
+# 	word = input('введите пароль ')
+# 	print(checkPassword(word))
