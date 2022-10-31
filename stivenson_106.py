@@ -15,6 +15,6 @@ def count_days(y, m):
 		return a[m - 1]
 
 
-year = int(input('write year '))
-month = int(input('write month '))
-print(count_days(year, month))
+# year = int(input('write year '))
+# month = int(input('write month '))
+# print(count_days(year, month))

@@ -1,28 +1,27 @@
-# Упражнение 105. Произвольные системы счисления
-# (Решено. 71 строка)
-# Напишите программу, которая позволит пользователю преобразовывать
-# числа из одной системы счисления в другую произвольным образом. Ваша
-# программа должна поддерживать все системы счисления в диапазоне от
-# 2 до 16 как для входных, так и для выходных данных. Если пользователь
-# выберет систему с основанием, выходящим за границы допустимого, на
-# экран должна быть выведена ошибка. Разделите код программы на не-
-# сколько функций, включая функцию, конвертирующую число из произ-
-# вольной системы счисления в десятичную, и обратную функцию, пере-
-# водящую значение из десятичной системы в произвольную. В основной
-# программе необходимо запросить у пользователя исходную систему счис-
-# ления, целевую систему, а также число для преобразования. При выполне-
-# нии данного упражнения вам могут пригодиться функции из заданий 81,
-# 82 и 104.
-def magic_systems(n, s, wish):
-	num_10 = int(n, s)
+def int2(w, num):
+	return int(w, num)
+
+
+def not_ordinary(w, num):
+	alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	result = ''
-	while num_10 > 0:
-		num_10, remain = divmod(num_10, wish)
-		result += str(remain)
+	while w > 0:
+		m, n = divmod(w, num)
+		result += alphabet[n]
 	return result[::-1]
 
 
-num = input('Write your number ')
-sys_num = int(input('write system of number '))
-wish_sys_num = int(input('write your wish system of number '))
-print(f'your number in {wish_sys_num} system of number is {magic_systems(num, sys_num, wish_sys_num)}')
+number = input('введите число ')
+num_system_in = int(input('введите число системы исчисления для входного числа {}'.format(number)))
+num_system_out = int(input('введите число системы исчисления для выходного числа '))
+num10 = int2(number, num_system_in)
+if num_system_out == 2:
+	print(f'{number} в {num_system_out}-ичной системе исчисления = {bin(num10)[2:]}')
+elif num_system_out == 16:
+	print(f'{number} в {num_system_out}-ичной системе исчисления = {hex(num10)[2:]}')
+elif num_system_out == 8:
+	print(f'{number} в {num_system_out}-ичной системе исчисления = {oct(num10)[2:]}')
+else:
+	print(f'{number} в {num_system_out}-ичной системе исчисления = '
+				f'{not_ordinary(num10, num_system_out)}')
+
